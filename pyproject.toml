@@ -24,6 +24,23 @@ tqdm = "^4.64.0"
 tensorboard = "^2.9.1"
 numba = "^0.56.0"
 torchinfo = "^1.7.0"
+lightgbm = "^3.3.2"
+catboost = "^1.0.6"
+mypy = "^0.971"
+pytest = "^7.1.2"
+loguru = "^0.6.0"
+black = "^22.6.0"
+hydra-core = "^1.2.0"
+hydra-colorlog = "^1.2.0"
+pytest-cov = "^3.0.0"
+pytest-benchmark = "^3.4.1"
+pylint = "^2.14.5"
+isort = "^5.10.1"
+Cython = "^0.29.32"
+coverage = "^6.4.2"
+python-dotenv = "^0.20.0"
+pre-commit = "^2.20.0"
+hydra-optuna-sweeper = "^1.2.0"
 
 [tool.poetry.dev-dependencies]
 
@@ -31,3 +48,31 @@ torchinfo = "^1.7.0"
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.black]
+line-length = 120
+
+[tool.pytest.ini_options]
+addopts = [
+  "--color=yes",
+  "--durations=0",
+  "--strict-markers",
+  "--doctest-modules",
+]
+filterwarnings = [
+  "ignore::DeprecationWarning",
+  "ignore::UserWarning",
+]
+log_cli = "True"
+markers = [
+  "slow: slow tests",
+]
+minversion = "6.0"
+testpaths = "tests/"
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: nocover",
+    "raise NotImplementedError",
+    "raise NotImplementedError()",
+    "if __name__ == .__main__.:",
+]

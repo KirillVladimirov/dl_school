@@ -1,0 +1,1 @@
+https://github.com/ashleve/lightning-hydra-template
